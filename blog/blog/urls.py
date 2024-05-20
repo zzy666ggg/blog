@@ -16,6 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+#1.导入系统logging
+import logging
+#2.创建日志记录器
+logger = logging.getLogger('django')
+
+
+
+from django.http import HttpResponse
+def log(requse):
+    #3.使用日志器记录信息
+    logger.info('info')
+    return HttpResponse('test')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',log),
 ]
